@@ -1,0 +1,97 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<title>Login</title>
+	<!-- the form awesome library is used to add icons to our form -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	<!-- include the stylesheet file -->
+	<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+	body {
+		background-color: rgb(0, 0, 0);
+		height: 100vh;
+		width: 100vw;
+
+	}
+
+	h1 {
+		text-align: center;
+		margin: 135px 2px;
+		padding: 2px 2px;
+		color: white;
+
+	}
+
+	form {
+		text-align: center;
+	}
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		width: 33%;
+		height: 40vh;
+		align-items: center;
+		margin-top: 100px;
+		background-color: rgb(139, 168, 168);
+		border: 3px solid black;
+		margin: -108px auto;
+		border-radius: 15px;
+	}
+
+	div form input {
+		font-size: larger;
+	}
+
+	.btn {
+
+		font-size: 17px;
+		border-radius: 4px;
+		background-color: rgb(158, 154, 154);
+
+	}
+	nav ul li a{
+		font-size: 23px;
+		margin: 20px 2px;
+		padding: 3px 3px;
+		text-decoration: none;
+		color: black;
+		border-radius: 5px;
+		background-color: rgb(158, 154, 154);
+	}
+</style>
+
+<body>
+	<nav>
+		<ul>
+			<li><a href="file:///home/cg47/Documents/3.html">Back</a></li>
+		</ul>
+	</nav>
+	<div class="login">
+		<h1>Login</h1>
+		<div class="container">
+
+			<form action="/auth" method="post">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				<br>
+				<br>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+				<br>
+				<br>
+				<button class="btn">Login</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

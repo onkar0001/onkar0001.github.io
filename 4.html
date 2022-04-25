@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    body {
+        background-color: black;
+    }
+
+    .mid {
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+
+    .heading {
+        justify-content: center;
+        display: flex;
+        font-size: 20px;
+        color: white;
+    }
+
+
+
+    .form {
+        border: 2px solid black;
+        padding: 5px 5px;
+        height: 359px;
+        width: 232px;
+        margin: 40px auto;
+        background-color: rgb(158, 154, 154);
+
+    }
+    nav ul li a{
+		font-size: 20px;
+		margin: 20px 2px;
+		padding: 3px 3px;
+		text-decoration: none;
+		color: black;
+		border-radius: 5px;
+		background-color: rgb(255, 255, 255);
+    }
+</style>
+
+<body>
+    <nav>
+		<ul>
+			<li><a href="file:///home/cg47/Documents/3.html">Back</a></li>
+		</ul>
+	</nav>
+    <head>
+        <div class="mid">
+            <h1>Create Account</h1>
+        </div>
+    </head>
+
+    <div class="heading">
+        <h3>
+            SHARE LEARNING EXPERIENCE
+        </h3>
+    </div>
+    <div class="form">
+
+        <form>
+
+            <form action="backend.js">
+                <input type="text" placeholder="Enter your name">
+                <br><br>
+                <input type="number" placeholder="Enter your number">
+                <br><br>
+                <input type="email" id="email" placeholder="Enter your E-mail">
+                <br><br>
+                <label for="Add">Address:</label>
+                <textarea name="add" id="Add" cols="20" rows="3"></textarea>
+                <br><br>
+                <label for="gender">Gender:</label>
+                <select name="gdr" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <br><br>
+                <label for="Date">Date:</label>
+                <input type="date" name="date" id="Date">
+                <br><br>
+                <label for="Time">Time:</label>
+                <input type="time" name="time" id="Time">
+                <br><br>
+                <input type="submit" value="Submit Now" class="endbtn">
+                <input type="reset" value="Reset Now" class="endbtn">
+            </form>
+
+        </form>
+    </div>
+</body>
+
+</html>
