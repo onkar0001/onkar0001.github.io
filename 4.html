@@ -3,7 +3,12 @@
 
 <style>
     body {
-        background-color: black;
+        background-image: url("https://wallpapercave.com/wp/wp3358813.jpg");
+        background-repeat: no-repeat;
+        background-position: center ;
+        margin-right: 200px;
+        background-attachment: fixed;
+}
     }
 
     .mid {
@@ -13,28 +18,33 @@
     }
 
     .heading {
+        font-style:Times New Roman;
         justify-content: center;
         display: flex;
         font-size: 20px;
-        color: white;
+        color: black;
     }
 
 
 
     .form {
-        border: 2px solid black;
-        padding: 5px 5px;
+        border-radius: 25px;
+        background: #73AD21;
+        border: 5px solid  red;
+        padding: 7px 7px;
         height: 359px;
-        width: 232px;
-        margin: 40px auto;
-        background-color: rgb(158, 154, 154);
+        width: 300px;
+        margin: 10px auto;
+        background-color: light blue;
 
     }
+
     nav ul li a{
 		font-size: 20px;
-		margin: 20px 2px;
+		margin: 30px 4px;
 		padding: 3px 3px;
 		text-decoration: none;
+                text-decoration-color: #E18728;
 		color: black;
 		border-radius: 5px;
 		background-color: rgb(255, 255, 255);
@@ -44,33 +54,33 @@
 <body>
     <nav>
 		<ul>
-			<li><a href="3.html">Back</a></li>
+			<li><a href="file:///home/cg47/Documents/3.html">Back</a></li>
 		</ul>
 	</nav>
     <head>
-        <div class="mid">
-            <h1>Create Account</h1>
+        <div class="heading">
+            <h1>CREATE ACCOUNT</h1>
         </div>
     </head>
 
-    <div class="heading">
+    <!--<div class="heading">
         <h3>
             SHARE LEARNING EXPERIENCE
         </h3>
-    </div>
+    </div>-->
     <div class="form">
 
         <form>
 
             <form action="backend.js">
-                <input type="text" placeholder="Enter your name">
+                <input type=" text" placeholder="  Enter your name">
                 <br><br>
-                <input type="number" placeholder="Enter your number">
+                <input type=" number" placeholder=" Enter your number">
                 <br><br>
-                <input type="email" id="email" placeholder="Enter your E-mail">
+                <input type=" email" id=" email" placeholder=" Enter your E-mail">
                 <br><br>
-                <label for="Add">Address:</label>
-                <textarea name="add" id="Add" cols="20" rows="3"></textarea>
+                <label for=" Add">Address:</label>
+                <textarea name=" add" id=" Add" cols="20" rows="3"></textarea>
                 <br><br>
                 <label for="gender">Gender:</label>
                 <select name="gdr" id="gender">
@@ -84,8 +94,8 @@
                 <label for="Time">Time:</label>
                 <input type="time" name="time" id="Time">
                 <br><br>
-                <input type="submit" value="Submit Now" class="endbtn">
-                <input type="reset" value="Reset Now" class="endbtn">
+                <input type="submit" value="  Submit Now  " class="endbtn">
+                <input type="reset" value="  Reset Now  " class="endbtn">
             </form>
 
         </form>
