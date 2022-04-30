@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background-image: url("https://images.wallpapersden.com/image/download/small-memory_am1pa2aUmZqaraWkpJRmbmdlrWZlbWU.jpg");
+        background-color: aqua;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right: 100px;
+        background-attachment: fixed;
+    }
+
+    nav ul li a {
+        font-size: 23px;
+        margin: 20px 2px;
+        padding: 3px 3px;
+        text-decoration: none;
+        color: black;
+        border-radius: 5px;
+        background-color: rgb(158, 154, 154);
+    }
+
+    nav2 ul li a {
+        font-size: 33px;
+        margin: 50px 2px;
+        padding: 2px 2px;
+        text-decoration: none;
+        color: red;
+        border-radius: 2px;
+        background-color: rgb(158, 154, 154);
+        display: ;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-evenly;
+
+    }
+
+    .button {
+        background-color: #04AA6D;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 20px 34px;
+        cursor: pointer;
+    }
+
+    .button5 {
+        border-radius: 50%;
+    }
+
+    .button3 {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+    }
+
+    .button1 {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-evenly;
+        margin: 10px;
+        padding: auto;
+        ;
+    }
+
+    .container {
+        height: 200px;
+        position: relative;
+        border: 3px ;
+    }
+
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    h2 {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">&#8592</a></li>
+        </ul>
+    </nav>
+    <h2>Upload Here</h2>
+    <div class="container">
+        <form action="/action_page.php">
+            <input type="file" id="myFile" name="filename">
+            <input type="submit">
+        </form>
+    </div>
+
+
+    <div class="container">
+    <div class="vertical-center">
+        <ul>
+            <li><button class="button button5"><a href="#">Explore here</a></button></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
