@@ -1,100 +1,98 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<title>Login</title>
-	<!-- the form awesome library is used to add icons to our form -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-	<!-- include the stylesheet file -->
-	<link href="/style.css" rel="stylesheet" type="text/css">
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-	body {
-	     background-image: url("https://images.wallpapersden.com/image/download/small-memory_am1pa2aUmZqaraWkpJRmbmdlrWZlbWU.jpg");
-             background-repeat: no-repeat;
-             background-position: center ;
-             margin-right: 100px;
-             background-attachment: fixed;
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
 
-	}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
-	h1 {
-		text-align: center;
-		margin: 135px 2px;
-		padding: 2px 2px;
-		color: white;
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
 
-	}
+button:hover {
+  opacity: 0.8;
+}
 
-	form {
-		text-align: center;
-	}
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
 
-	.container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		width: 33%;
-		height: 30vh;
-		align-items: center;
-		margin-top: 100px;
-		background-color: rgb(139, 168, 168);
-		border: 3px solid black;
-		margin: -108px auto;
-		border-radius: 15px;
-	}
-         
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
 
-	div form input {
-		font-size: medium;
-	}
+img.avatar {
+  width: 20%;
+  border-radius: 50%;
+}
 
-	.btn {
+.container {
+  padding: 16px;
+}
 
-		font-size: 17px;
-		border-radius: 4px;
-		background-color: white;
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
 
-	}
-	nav ul li a{
-		font-size: 23px;
-		margin: 20px 2px;
-		padding: 3px 3px;
-		text-decoration: none;
-		color: black;
-		border-radius: 5px;
-		background-color: rgb(158, 154, 154);
-	}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
 </style>
-
+</head>
 <body>
-	<nav>
-		<ul>
-			<li><a href="index.html">Back</a></li>
-		</ul>
-	</nav>
-	<div class="login">
-		<h1>Log In</h1>
-		<div class="container">
 
-			<form action="/auth" method="post">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-				<br>
-				<br>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<br>
-				<br>
-				<button class="btn">Login</button>
-			</form>
-		</div>
-	</div>
+<h2>Login</h2>
+
+<form action="/action_page.php" method="post">
+  <div class="imgcontainer">
+    <img src="https://previews.123rf.com/images/vectorv/vectorv1907/vectorv190712800/126482132-gold-male-graduate-student-profile-with-gown-and-graduation-cap-icon-isolated-on-black-background-ve.jpg" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+
 </body>
-
 </html>
