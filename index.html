@@ -199,13 +199,11 @@ span.psw {
 
 <body>
 
-   
-
     <header>
         <div class="header">
             <h1>SHARE LEARNING EXPERIANCES</h1>
         </div>
-        <form class="example" action="/action_page.php">
+        <form class="example" action="#">
             <input type="text" placeholder="Search.." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
@@ -229,23 +227,24 @@ span.psw {
               <div class="imgcontainer">
                 <img src="https://previews.123rf.com/images/vectorv/vectorv1907/vectorv190712800/126482132-gold-male-graduate-student-profile-with-gown-and-graduation-cap-icon-isolated-on-black-background-ve.jpg" alt="Avatar" class="avatar">
               </div>
-            
+            <form method = "$POST" action = "#">
               <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname"  required>
             
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw"  required>
             
                 <button type="submit">Login</button>
                 <label>
                   <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
+               </form>
               </div>
             
               <div class="container" style="background-color:#f1f1f1">
                 <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
+                <span class="psw">Create New <a href="signup.html">Account</a></span>
               </div>
             </form>
           
