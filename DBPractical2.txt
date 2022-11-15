@@ -1,0 +1,365 @@
+                                                                      Practical No:2
+SQL Queries:
+a. Design and Develop SQLDDL statements which demonstrate the use of SQL objects such as Table, View, Index, Sequence, Synonym, different constraints etc.
+b. Write at least 10 SQL queries on the suitable database application using SQL DML statements.                                                                      
+
+
+gaurav123@ubuntu:~$ sudo su
+[sudo] password for gaurav123: 
+Sorry, try again.
+[sudo] password for gaurav123: 
+root@ubuntu:/home/gaurav123# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.31-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.11 sec)
+
+mysql> create database Student;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use Student;
+mysql> e changed
+mysql> create table student(Rollno int,Name varchar(34),Marks int,primary key(Rollno))
+mysql> SQL Queries:
+a. Design and Develop SQLDDL statements
+which demonstrate the use of SQL objects
+such as Table, View, Index, Sequence,
+Synonym, different constraints etc.
+b. Write at least 10 SQL queries on the suitable
+database application using SQL DML
+statements.SQL Queries:
+^C
+mysql> a. Design and Develop SQLDDL statements
+    -> which demonstrate the use of SQL objects
+    -> such as Table, View, Index, Sequence,
+    -> Synonym, different constraints etc.
+    -> b. Write at least 10 SQL queries on the suitable
+    -> database application using SQL DML
+    -> statements.^C
+
+^C
+mysql> create table student(Rollno int,Name varchar(34),Marks int,primary key(Rollno))
+    -> ;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| Rollno | int         | NO   | PRI | NULL    |       |
+| Name   | varchar(34) | YES  |     | NULL    |       |
+| Marks  | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> insert into student(1,'Gaurav Kadam',54);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,'Gaurav Kadam',54)' at line 1
+mysql> insert into student values(1,'Gaurav Kadam',54);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from student;
++--------+--------------+-------+
+| Rollno | Name         | Marks |
++--------+--------------+-------+
+|      1 | Gaurav Kadam |    54 |
++--------+--------------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into student(Rollno,Name,Marks) values(2,'Shubham Kadam',56);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++--------+---------------+-------+
+| Rollno | Name          | Marks |
++--------+---------------+-------+
+|      1 | Gaurav Kadam  |    54 |
+|      2 | Shubham Kadam |    56 |
++--------+---------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into student(Rollno,Name,Marks) values(3,'Harsh Kadlag',56);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student(Rollno,Name,Marks) values(3,'Narendra Kadlag',46);
+ERROR 1062 (23000): Duplicate entry '3' for key 'student.PRIMARY'
+mysql> insert into student(Rollno,Name,Marks) values(4,'Narendra Kadlag',46);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student(Rollno,Name,Marks) values(5,'shejal Kadlag',106);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++--------+-----------------+-------+
+| Rollno | Name            | Marks |
++--------+-----------------+-------+
+|      1 | Gaurav Kadam    |    54 |
+|      2 | Shubham Kadam   |    56 |
+|      3 | Harsh Kadlag    |    56 |
+|      4 | Narendra Kadlag |    46 |
+|      5 | shejal Kadlag   |   106 |
++--------+-----------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table account as select Rollno,Name from student;
+Query OK, 5 rows affected (0.04 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from account;
++--------+-----------------+
+| Rollno | Name            |
++--------+-----------------+
+|      1 | Gaurav Kadam    |
+|      2 | Shubham Kadam   |
+|      3 | Harsh Kadlag    |
+|      4 | Narendra Kadlag |
+|      5 | shejal Kadlag   |
++--------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> altere table account add(fees int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'altere table account add(fees int)' at line 1
+mysql> altere table account add(fees,int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'altere table account add(fees,int)' at line 1
+mysql> alter table account add(fees int);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from account;
++--------+-----------------+------+
+| Rollno | Name            | fees |
++--------+-----------------+------+
+|      1 | Gaurav Kadam    | NULL |
+|      2 | Shubham Kadam   | NULL |
+|      3 | Harsh Kadlag    | NULL |
+|      4 | Narendra Kadlag | NULL |
+|      5 | shejal Kadlag   | NULL |
++--------+-----------------+------+
+5 rows in set (0.00 sec)
+
+mysql> update account set fees=20 where Rollno=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from account;
++--------+-----------------+------+
+| Rollno | Name            | fees |
++--------+-----------------+------+
+|      1 | Gaurav Kadam    |   20 |
+|      2 | Shubham Kadam   | NULL |
+|      3 | Harsh Kadlag    | NULL |
+|      4 | Narendra Kadlag | NULL |
+|      5 | shejal Kadlag   | NULL |
++--------+-----------------+------+
+5 rows in set (0.00 sec)
+
+mysql> update account set fees=223 where Rollno=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update account set fees=234 where Rollno=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update account set fees=222 where Rollno=4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update account set fees=333 where Rollno=5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from account;
++--------+-----------------+------+
+| Rollno | Name            | fees |
++--------+-----------------+------+
+|      1 | Gaurav Kadam    |   20 |
+|      2 | Shubham Kadam   |  223 |
+|      3 | Harsh Kadlag    |  234 |
+|      4 | Narendra Kadlag |  222 |
+|      5 | shejal Kadlag   |  333 |
++--------+-----------------+------+
+5 rows in set (0.00 sec)
+
+mysql> alter table account modify (Name varchar(90));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(Name varchar(90))' at line 1
+mysql> alter table account modify(Name varchar(90));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(Name varchar(90))' at line 1
+mysql> alter table account modify(Name Namee varchar(90));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(Name Namee varchar(90))' at line 1
+mysql> alter table account modify(fees number(4));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(fees number(4))' at line 1
+mysql> alter table account modify(fees number(4));
+
+mysql> drop table account;
+
+mysql> truncate table account;
+
+
+
+
+10 Data Manipulation query
+
+mysql> update student set Name='Kajal Kadalg' where Name='shejal Kadlag';
+Query OK, 1 row affected (0.26 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++--------+-----------------+-------+
+| Rollno | Name            | Marks |
++--------+-----------------+-------+
+|      1 | Gaurav Kadam    |    54 |
+|      2 | Shubham Kadam   |    56 |
+|      3 | Harsh Kadlag    |    56 |
+|      4 | Narendra Kadlag |    46 |
+|      5 | Kajal Kadalg    |   106 |
++--------+-----------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> delete from student where Name='Harsh Kadlag';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++--------+-----------------+-------+
+| Rollno | Name            | Marks |
++--------+-----------------+-------+
+|      1 | Gaurav Kadam    |    54 |
+|      2 | Shubham Kadam   |    56 |
+|      4 | Narendra Kadlag |    46 |
+|      5 | Kajal Kadalg    |   106 |
++--------+-----------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> insert into student values(3,'Ganesh Shelke',89);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++--------+-----------------+-------+
+| Rollno | Name            | Marks |
++--------+-----------------+-------+
+|      1 | Gaurav Kadam    |    54 |
+|      2 | Shubham Kadam   |    56 |
+|      3 | Ganesh Shelke   |    89 |
+|      4 | Narendra Kadlag |    46 |
+|      5 | Kajal Kadalg    |   106 |
++--------+-----------------+-------+
+5 rows in set (0.00 sec)
+
+
+
+gaurav123@ubuntu:~$ sudo
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-AknS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-AknS] [-g group] [-h host] [-p prompt] [-U user] [-u user]
+            [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p
+            prompt] [-T timeout] [-u user] [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p
+            prompt] [-T timeout] [-u user] file ...
+gaurav123@ubuntu:~$ sudo su
+[sudo] password for gaurav123: 
+root@ubuntu:/home/gaurav123# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.31-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Student            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.20 sec)
+
+mysql> use Student;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from Student;
+ERROR 1146 (42S02): Table 'Student.Student' doesn't exist
+mysql> show tables;
++-------------------+
+| Tables_in_Student |
++-------------------+
+| account           |
+| student           |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student
+    -> ;
++--------+-----------------+-------+
+| Rollno | Name            | Marks |
++--------+-----------------+-------+
+|      1 | Gaurav Kadam    |    54 |
+|      2 | Shubham Kadam   |    56 |
+|      3 | Ganesh Shelke   |    89 |
+|      4 | Narendra Kadlag |    46 |
+|      5 | Kajal Kadalg    |   106 |
++--------+-----------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) from student;
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.16 sec)
+
+mysql> select avg(Marks) from student;
++------------+
+| avg(Marks) |
++------------+
+|    70.2000 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> select max(Marks) from student;
++------------+
+| max(Marks) |
++------------+
+|        106 |
++------------+
+1 row in set (0.02 sec)
+
+mysql> select min(Marks) from student;
++------------+
+| min(Marks) |
++------------+
+|         46 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> 

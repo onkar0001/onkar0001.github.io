@@ -1,0 +1,117 @@
+                                                                 Practical No:8
+Database Connectivity:
+Write a program to implement MySQL/Oracle database connectivity with any front end language to implement Database navigationoperations (add, delete, edit etc.)     
+
+Database connectivity code:
+
+
+import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+
+public class Student {
+  
+    
+	public static void main(String[] args)
+	{
+		Connection con=null;
+		Statement stmt=null;
+		
+        try
+        {   
+             Scanner sc=new Scanner(System.in);
+        	
+        	Class.forName("com.mysql.cj.jdbc.Driver");
+        	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Student","root","Gaurav@123");
+        	
+        	System.out.println(con.getClass());
+            stmt=con.createStatement();
+           
+            String sql="Select * from Student.stud"; 
+            //String sql="INSERT INTO `Student`.`Stud` (`RollNo`, `Studname`, `Marks`) VALUES ('3203', 'Viren Karad', '100');"
+            //String sql="DELETE FROM `Student`.`Stud` WHERE (`RollNo` = '3203')";
+            //String sql="UPDATE `Student`.`Stud` SET `Marks` = '23' WHERE (`RollNo` = '3202');"
+            stmt.executeLargeUpdate(sql);
+            rs=stmt.executeQuery(sql);
+            
+             	
+        }
+        catch( ArithmeticException e)
+        {
+       	  e.printStackTrace();
+        }
+        catch(NullPointerException r)
+        {
+        	r.printStackTrace();
+        }
+        catch(SQLException d)
+        {
+        	d.printStackTrace();
+        }
+        catch(NumberFormatException f)
+        {
+        	f.printStackTrace();
+        }
+        catch(ClassNotFoundException n)
+        {
+        	
+        	out.println("Class not found");
+        }
+        
+        finally
+        {
+        	try
+        	{
+        		rs.close();
+        	}
+        	catch(NullPointerException g)
+        	{
+        		System.out.println("database is empty");
+        	}
+        	 catch(SQLException d)
+            {
+            	d.printStackTrace();
+            }
+        	
+        	try
+        	{
+        		stmt.close();
+        		
+        	}
+        	catch(NullPointerException g)
+        	{
+        		System.out.println("Bus is not available");
+        	}
+        	 catch(SQLException d)
+            {
+            	d.printStackTrace();
+            }
+        	try
+        	{
+        	    con.close();
+        	    
+        	}
+        	catch(NullPointerException g)
+        	{
+        		System.out.println("Connection is not established");
+        	}
+        	 catch(SQLException d)
+            {
+            	d.printStackTrace();
+            }
+        	
+        }
+        
+        } 
+  
+       
+	}      	        
+
+	
+
+
+                                                            
