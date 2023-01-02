@@ -1,0 +1,46 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+int main()
+{
+    int n,i,a[10],number,lower=0,middle,higher,flag=0;
+    cout<<"Enter total numbers in the list :\n ";
+    cin>>n;
+    cout<<"Enter the numbers in ascending order....\n ";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    cout<<"Enter the number to be searched "; 
+    cin>>number;
+    higher=n-1; 
+    while(lower<=higher)
+    {
+        middle=(lower+higher)/2; 
+        if(number==a[middle])
+        {
+            flag=1;
+            break;
+        }
+        if(number<a[middle])
+        {
+            higher=middle-1;
+        }
+        else
+        {
+            lower=middle+1;
+        }
+        if(flag==1)
+        {
+            cout<<"Number is found";
+        
+        }
+        else
+        {
+            cout<<"Number is not found";
+        }
+    }
+    return 0;
+}
+         
+           

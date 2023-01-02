@@ -1,0 +1,83 @@
+IMPLEMENTATION OF THREAD BINARY TREE
+
+#include <iostream>
+using namespace std;
+struct student
+{
+struct student *lchild;
+int lbit; //lbit=1 for child and 0 for thread
+int roll ;
+int rbit; //rbit=1 for child and 0 for thread
+struct student *rchild;
+};
+void insert(struct student *tree, struct student *p)
+{
+if(p->roll< tree->roll)
+{
+if(tree->lbit==0)
+{
+tree->lchild=p;
+tree->lbit=1;
+p->lchild=tree->lchild;
+p->rchild=tree;
+}
+else
+insert(tree->lchild,p);
+}
+else
+{
+if(tree->rbit==0)
+{
+tree->rchild=p;
+tree->rbit=1;
+p->rchild=tree->rchild;
+p->lchild=tree;
+}
+else
+insert(tree->rchild,p);
+}
+}
+struct student *create()
+{
+int ch;
+//struct student *head,*root,*first;
+struct student *root=NULL;
+struct student *head= new student;
+head->lchild=head->rchild=head;
+head->lbit=head->rbit=1;
+do
+{
+struct student *first=new student;
+first->lchild=first->rchild=NULL;
+first->lbit=first->rbit=0;
+cout<<"Enter Roll Number: ";
+cin>>first->roll;
+if(root==NULL)
+{
+root=first;
+root->lchild=root->rchild=head;
+head->lchild=root;
+}
+else
+insert(root,first);
+cout<<"Add more[1/0]";
+cin>>ch;
+}while(ch==1);
+return(head);
+}
+void inorder(struct student *r)
+{
+if(r->lbit==1)
+inorder(r->lchild);
+cout<< "\t"<< r->roll;
+if(r->rbit==1)
+inorder(r->rchild);
+}
+int main()
+{
+struct student *head;
+cout<<"\n To create tree\n ";
+head=create();
+cout<<"\nInorder traversal is:\n";
+inorder(head->lchild);
+}
